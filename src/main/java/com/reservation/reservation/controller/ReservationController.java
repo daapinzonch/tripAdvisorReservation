@@ -3,10 +3,7 @@ package com.reservation.reservation.controller;
 import com.reservation.reservation.entity.Reservation;
 import com.reservation.reservation.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,8 +18,8 @@ public class ReservationController {
         return resService.save(reservation);
     }
 
-    @RequestMapping(value = "/reservation/provider", method = RequestMethod.GET)
-    public List<Reservation> getProviderReservation(@RequestBody Long providerId){
+    @RequestMapping(value = "/reservation/provider/{providerId}", method = RequestMethod.GET)
+    public List<Reservation> getProviderReservation(@PathVariable("providerId") Long providerId){
         return resService.getAllByProviderId(providerId);
     }
 
@@ -31,10 +28,9 @@ public class ReservationController {
         return resService.markReservationAsAnswered(reservationId);
     }
 
-    @RequestMapping(value = "/reservation/client", method = RequestMethod.GET)
-    public List<Reservation> getClientReservations(@RequestBody Long clientId){
+    @RequestMapping(value = "/reservation/client/{clientId}", method = RequestMethod.GET)
+    public List<Reservation> getClientReservations(@PathVariable("clientId") Long clientId){
         return resService.getAllByClientId(clientId);
     }
-
 
 }
