@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.ZonedDateTime;
+
 
 @Entity
 @Data
@@ -26,12 +28,12 @@ public class Reservation implements Serializable {
     @NotNull
     Long providerId;
 
-
-    //Boolean accepted;
-
     @NotNull
     String postId;
 
+    @NotNull
+    ZonedDateTime startTime;
 
+    ZonedDateTime endTime;
 
 }

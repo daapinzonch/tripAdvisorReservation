@@ -5,7 +5,9 @@ import com.reservation.reservation.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReservationService {
@@ -24,7 +26,24 @@ public class ReservationService {
         return reservationRepository.getAllByClientId(clientId);
     }
 
+    public List<Reservation> getAll(){
+        return reservationRepository.findAll();
+    }
+
+    public List<Reservation> getAllByPostId(String postId){
+        return reservationRepository.getAllByPostId(postId);
+    }
+
+    public Optional<Reservation> getReservationById(Long id){
+        return reservationRepository.findById(id);
+    }
+
     public Reservation markReservationAsAnswered(Long resId){
-        return reservationRepository.getOne(resId); //TEMPORAL
+        return reservationRepository.getOne(resId);
+    }
+
+
+    public void rejectReservation(Long resId){
+        reservationRepository.deleteById(resId);
     }
 }

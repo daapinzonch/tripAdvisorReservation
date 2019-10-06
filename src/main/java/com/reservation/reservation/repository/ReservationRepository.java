@@ -8,4 +8,5 @@ import java.util.List;
 public interface ReservationRepository extends JpaRepository<Reservation,Long> {
     public List<Reservation> getAllByProviderId(Long providerId);
     public List<Reservation> getAllByClientId(Long clientId);
+    public List<Reservation> getAllByPostId(String postId);
 }
