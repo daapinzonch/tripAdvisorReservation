@@ -2,12 +2,15 @@ package com.reservation.reservation.controller;
 
 import com.reservation.reservation.entity.Reservation;
 import com.reservation.reservation.service.ReservationService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@Api(value="Reservation Microservices",description="Operations related to Reservations")
 @RequestMapping("/reservation")
 @RestController
 public class ReservationController {
@@ -15,36 +18,44 @@ public class ReservationController {
     @Autowired
     ReservationService resService;
 
+    @ApiOperation(value="Store a reservation",response = Reservation.class)
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public Reservation saveReservation(@RequestBody Reservation reservation){
         return resService.save(reservation);
     }
 
+    @ApiOperation(value="Get all reservations",response = List.class)
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<Reservation> getAllReservations(){
         return resService.getAll();
     }
 
+    @ApiOperation(value="Get all reservations from a specific provider",response = List.class)
     @RequestMapping(value = "/provider/{providerId}", method = RequestMethod.GET)
     public List<Reservation> getProviderReservations(@PathVariable("providerId") Long providerId){
         return resService.getAllByProviderId(providerId);
     }
 
-    @RequestMapping(value = "/post", method = RequestMethod.GET)
-    public List<Reservation> getPostReservations(@RequestBody String postId){
+
+    @ApiOperation(value="Get all reservations from a specific post",response = List.class)
+    @GetMapping(value = "/post/{postId}")
+    public List<Reservation> getPostReservations(@PathVariable("postId") String postId){
         return resService.getAllByPostId(postId);
     }
 
+    @ApiOperation(value="Answer a reservation. Not defined",response = Reservation.class)
     @RequestMapping(value = "/{reservationId}",method = RequestMethod.PUT)
     public Reservation answerReservation(@PathVariable("reservationId") Long reservationId){
         return resService.markReservationAsAnswered(reservationId);
     }
 
+    @ApiOperation(value="Get all reservations from a specific client",response = List.class)
     @RequestMapping(value = "/client/{clientId}", method = RequestMethod.GET)
     public List<Reservation> getClientReservations(@PathVariable("clientId") Long clientId){
         return resService.getAllByClientId(clientId);
     }
 
+    @ApiOperation(value="Delete a reservation",response = Reservation.class)
     @RequestMapping(value="/{reservationId}",method = RequestMethod.DELETE)
     public Reservation rejectReservation(@PathVariable("reservationId") Long reservationId){
         Optional<Reservation> found = resService.getReservationById(reservationId);

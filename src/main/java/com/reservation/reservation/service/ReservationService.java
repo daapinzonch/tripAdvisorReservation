@@ -30,6 +30,7 @@ public class ReservationService {
         return reservationRepository.findAll();
     }
 
+    //FIX
     public List<Reservation> getAllByPostId(String postId){
         return reservationRepository.getAllByPostId(postId);
     }
