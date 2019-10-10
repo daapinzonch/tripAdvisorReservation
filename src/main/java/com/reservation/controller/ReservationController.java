@@ -1,7 +1,7 @@
-package com.reservation.reservation.controller;
+package com.reservation.controller;
 
-import com.reservation.reservation.entity.Reservation;
-import com.reservation.reservation.service.ReservationService;
+import com.reservation.entity.Reservation;
+import com.reservation.service.ReservationService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

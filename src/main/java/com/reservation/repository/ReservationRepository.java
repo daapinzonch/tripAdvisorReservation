@@ -1,6 +1,6 @@
-package com.reservation.reservation.repository;
+package com.reservation.repository;
 
-import com.reservation.reservation.entity.Reservation;
+import com.reservation.entity.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.validation.constraints.NotBlank;

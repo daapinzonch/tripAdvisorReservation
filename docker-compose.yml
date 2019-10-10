@@ -1,0 +1,29 @@
+version: '2'
+services:
+
+ res-mysql:
+  container_name: res-mysql
+  image: mysql
+  restart: always
+  ports:
+   - 3306:3306
+  environment:
+   MYSQL_ROOT_PASSWORD: 1234
+   MYSQL_DATABASE: reservation_db
+   MYSQL_PASSWORD: 1234
+
+ reservation:
+  build: .
+  ports:
+   - "8080:8080"
+  environment:
+   SPRING_PROFILES_ACTIVE: uat
+   DATABASE: ta_db
+   MYSQL_HOST: res-mysql
+   MYSQL_PORT: 3306
+   MYSQL_USR: root
+   MYSQL_PSWD: 1234
+   SERVER_PORT: 8080
+   DATABASE: reservation_db
+  links:
+   - res-mysql

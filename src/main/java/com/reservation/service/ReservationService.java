@@ -1,11 +1,10 @@
-package com.reservation.reservation.service;
+package com.reservation.service;
 
-import com.reservation.reservation.entity.Reservation;
-import com.reservation.reservation.repository.ReservationRepository;
+import com.reservation.entity.Reservation;
+import com.reservation.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
