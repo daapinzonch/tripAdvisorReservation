@@ -46,7 +46,7 @@ public class Reservation implements Serializable {
     @ApiModelProperty(notes = "Reservation ending time (Date and Time)")
     private ZonedDateTime endTime;
 
-    @ApiModelProperty(notes = "Amount of people who will use the reservated service")
+    @ApiModelProperty(notes = "Amount of people who will use the reserved service")
     private Integer amount;
 
     @Positive(message = "Prize should not be negative or zero.")
@@ -75,7 +75,6 @@ public class Reservation implements Serializable {
         this.endTime = reservationRequest.getEndTime();
         this.amount = reservationRequest.getAmount();
         this.prizePerHead = reservationRequest.getPrizePerHead();
-
         this.timeStamp  = Timestamp.from(Instant.now());
         this.paid = false;
         this.approved = false;
