@@ -17,6 +17,7 @@ import java.util.Optional;
 @Api(value="Reservation Microservices",description="Operations related to Reservations")
 @RequestMapping("/reservation/")
 @RestController
+@CrossOrigin(origins = "*")
 public class ReservationController {
 
     @Autowired

@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @Api(value = "Reservation Microservices", description = "Operations related to Payments")
 @RequestMapping("/payment/")
+@CrossOrigin(origins = "*")
 public class PaymentController {
     @Autowired
     PaymentService paymentService;
