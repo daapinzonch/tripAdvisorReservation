@@ -30,10 +30,10 @@ public class Reservation implements Serializable {
 
     @NotNull
     @ApiModelProperty(notes = "The associated Client ID")
-    private Long clientId;
+    private String clientId;
     @NotNull
     @ApiModelProperty(notes = "The associated Provider ID")
-    private Long providerId;
+    private String providerId;
 
     @NotNull
     @ApiModelProperty(notes = "The associated Post ID")

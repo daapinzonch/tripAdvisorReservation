@@ -17,9 +17,9 @@ public class ReservationRequest {
     @NotNull
     String postId;
     @NotNull
-    private Long clientId;
+    private String clientId;
     @NotNull
-    private Long providerId;
+    private String providerId;
     @NotNull
     @FutureOrPresent(message = "The reservation shouldn't have started already.")
     private ZonedDateTime startTime;
@@ -30,5 +30,4 @@ public class ReservationRequest {
     private BigDecimal prizePerHead;
     @Positive
     private Integer amount;
-
 }

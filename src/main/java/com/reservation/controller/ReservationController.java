@@ -51,7 +51,7 @@ public class ReservationController {
     @ApiOperation(value="Get all reservations from a specific provider",response = List.class)
     @RequestMapping(value = "/provider/{providerId}", method = RequestMethod.GET)
     public ResponseEntity<List<Reservation>> getProviderReservations(
-            @ApiParam(value = "Provider Id for filtering", required = true)@PathVariable("providerId") Long providerId){
+            @ApiParam(value = "Provider Id for filtering", required = true)@PathVariable("providerId") String providerId){
         try {
             return ResponseEntity.ok(resService.getAllByProviderId(providerId));
         }
@@ -78,7 +78,7 @@ public class ReservationController {
     @ApiOperation(value="Get all reservations from a specific client",response = List.class)
     @RequestMapping(value = "/client/{clientId}", method = RequestMethod.GET)
     public ResponseEntity<List<Reservation>> getClientReservations(
-            @ApiParam(value = "Client Id for filtering", required = true)@PathVariable("clientId") Long clientId){
+            @ApiParam(value = "Client Id for filtering", required = true)@PathVariable("clientId") String clientId){
 
         try{
             return ResponseEntity.ok(resService.getAllByClientId(clientId));

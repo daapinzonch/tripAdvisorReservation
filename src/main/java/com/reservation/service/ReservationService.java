@@ -24,10 +24,10 @@ public class ReservationService {
     public Reservation save(Reservation reservation){
         return reservationRepository.saveAndFlush(reservation);
     }
-    public List<Reservation> getAllByProviderId(Long providerId){
+    public List<Reservation> getAllByProviderId(String providerId){
         return reservationRepository.getAllByProviderId(providerId);
     }
-    public List<Reservation> getAllByClientId(Long clientId){
+    public List<Reservation> getAllByClientId(String clientId){
         return reservationRepository.getAllByClientId(clientId);
     }
     public List<Reservation> getAll(){
