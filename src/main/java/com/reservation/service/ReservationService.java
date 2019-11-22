@@ -84,4 +84,9 @@ public class ReservationService {
     }
 
 
+    public Optional<Reservation> getById(Long id) {
+
+        return this.reservationRepository.getById(id);
+
+    }
 }

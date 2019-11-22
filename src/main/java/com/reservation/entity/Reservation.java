@@ -82,4 +82,13 @@ public class Reservation implements Serializable {
 
     }
 
+    public void update(ReservationRequest reservationRequest) {
+
+        //No se puede editar postId, clientId ni providerId.
+        if(reservationRequest.getStartTime() != null) this.startTime = reservationRequest.getStartTime();
+        if(reservationRequest.getEndTime()   != null) this.endTime   = reservationRequest.getEndTime();
+        if(reservationRequest.getPrizePerHead() != null) this.prizePerHead = reservationRequest.getPrizePerHead();
+        if(reservationRequest.getAmount() != null) this.amount = reservationRequest.getAmount();
+
+    }
 }

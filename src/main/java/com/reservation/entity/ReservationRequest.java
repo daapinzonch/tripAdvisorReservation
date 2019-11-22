@@ -14,20 +14,13 @@ import java.time.ZonedDateTime;
 public class ReservationRequest {
 
 
-    @NotNull
-    String postId;
-    @NotNull
-    private String clientId;
-    @NotNull
-    private String providerId;
-    @NotNull
+    @NotNull private String postId;
+    @NotNull private String clientId;
+    @NotNull private String providerId;
     @FutureOrPresent(message = "The reservation shouldn't have started already.")
-    private ZonedDateTime startTime;
-    @NotNull
+    @NotNull private ZonedDateTime startTime;
     @Future(message = "The reservation cannot end someday in the past.")
-    private ZonedDateTime endTime;
-    @Positive
-    private BigDecimal prizePerHead;
-    @Positive
-    private Integer amount;
+    @NotNull private ZonedDateTime endTime;
+    @NotNull @Positive private BigDecimal prizePerHead;
+    @NotNull @Positive private Integer amount;
 }
